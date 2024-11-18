@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Command
 {
-    
-
     public Command()
-    {
-       
-    }
+    {}
 
     public virtual void Execute()
-    {
-        return;
-    }
+    {}
 }
 
 public class PumpCommand : Command
