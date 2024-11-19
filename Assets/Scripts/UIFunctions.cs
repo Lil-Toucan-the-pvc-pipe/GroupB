@@ -12,6 +12,4 @@ public class UIFunctions : MonoBehaviour
         else 
             objectToChange.SetActive(true);
     }
-
-
 }

@@ -21,10 +21,6 @@ public class Controls
 
     protected virtual void Pressed(InputAction.CallbackContext context)
     {
-        foreach (var bind in _xPInput.action.bindings)
-        {
-            Debug.Log(InputControlPath.ToHumanReadableString(bind.effectivePath));
-        }
-        _aPressAction.Invoke();
+        _aPressAction?.Invoke();
     }
 }

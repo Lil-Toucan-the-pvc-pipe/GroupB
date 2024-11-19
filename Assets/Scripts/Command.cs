@@ -1,0 +1,44 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Command
+{
+    public Command()
+    {}
+
+    public virtual void Execute()
+    {}
+}
+
+public class PumpCommand : Command
+{
+    /*protected*/
+    Animator _aAnimator;
+    public PumpCommand(Animator _aAnimator) : base()
+    {
+        this._aAnimator = _aAnimator;
+    }
+
+    public override void Execute()
+    {
+        _aAnimator.Play("PUMPING IRON");
+    }
+}
+
+public class AddPointCommand : Command
+{
+    int _iPointsToAdd = 1;
+    public AddPointCommand() : base()
+    {}
+
+    public AddPointCommand(int pointsToAdd) : base() 
+    {
+        _iPointsToAdd = pointsToAdd;
+    }
+
+    public override void Execute()
+    {
+        PointsData.iPoints += 1;
+    }
+}

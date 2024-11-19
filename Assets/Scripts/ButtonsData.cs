@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class InputData
+public static class ButtonsData
 {
-    public static Controls xGameplayButton;
+    public static Controls xPumpButton;
     public static Controls xReturnButton;
     public static Controls xComfirmButton;
 }
