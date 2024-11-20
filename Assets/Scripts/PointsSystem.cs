@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class PointsHandler : Command
+public class PointsSystem : FeatureSystem
 {
     [SerializeField] private int _iPointsToGet = 1;
     [SerializeField] private int _iPointsPerPress = 1;
@@ -13,12 +13,12 @@ public class PointsHandler : Command
 
     // start => InputData.PumpButton.AddCommand(AddPoints)
 
-    public void Inizialize()
+    public override void Inanziate()
     {
         ButtonsData.xPumpButton.AddCommand(new AddPointCommand(_iPointsPerPress));
     }
 
-    public override void Execute()
+    public override void ExecuteUpdate()
     {
         if (PointsData.iPoints == _iPointsToGet)
         {

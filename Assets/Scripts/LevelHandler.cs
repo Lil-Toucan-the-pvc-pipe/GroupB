@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class LevelHandler : MonoBehaviour
 {
-    [SerializeField] TimerSystem _xtimerSystem;
-    [SerializeField] PointsHandler _xPointsHandler;
+
+    [SerializeField] LevelSO _xLevelData;
+
     private void Start()
     {
         // ask tutor for help to find a better way 
-        if (_xPointsHandler.isActive)
+        if (_xLevelData.xPointsHandler.isActive)
         {
-            if (_xtimerSystem.isActive)
+            if (_xLevelData.xtimerSystem.isActive)
             {
-                _xtimerSystem.aTimerFinished += LevelLost;
+                _xLevelData.xtimerSystem.aTimerFinished += LevelLost;
             }
-            _xPointsHandler.aGoalReached += LevelWon;
+            _xLevelData.xPointsHandler.aGoalReached += LevelWon;
         }
-        else if(_xtimerSystem.isActive)
+        else if(_xLevelData.xtimerSystem.isActive)
         {
-            _xtimerSystem.aTimerFinished += LevelWon;
+            _xLevelData.xtimerSystem.aTimerFinished += LevelWon;
         }
-
-        _xPointsHandler.Inizialize();
+        _xLevelData.xPointsHandler.Inanziate();
     }
 
     private void Update()
     {
-        _xPointsHandler?.Execute();
-        _xtimerSystem?.Execute();
+        _xLevelData.xPointsHandler?.ExecuteUpdate();
+        _xLevelData.xtimerSystem?.ExecuteUpdate();
     }
 
     public void LevelWon()
     {
-
+        _xLevelData.gWinScreen.SetActive(true);
     }
     public void LevelLost()
     {
-
+        _xLevelData.gLoseScreen.SetActive(true);
     }
 }
 
