@@ -8,8 +8,7 @@ public class PointsSystem : FeatureSystem
 {
     [SerializeField] private int _iPointsToGet = 1;
     [SerializeField] private int _iPointsPerPress = 1;
-    [HideInInspector] public Action aGoalReached;
-    public bool isActive;
+    
 
     // start => InputData.PumpButton.AddCommand(AddPoints)
 
@@ -23,9 +22,15 @@ public class PointsSystem : FeatureSystem
         if (PointsData.iPoints == _iPointsToGet)
         {
             PointsData.ResetPoints();
-            aGoalReached?.Invoke();
+            aFinishedExecute?.Invoke();
             return;
         }
+    }
+
+    public override void Reset()
+    {
+        PointsData.ResetPoints();
+        aFinishedExecute = null;
     }
 
 }

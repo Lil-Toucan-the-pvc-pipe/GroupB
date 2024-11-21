@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelHandler : MonoBehaviour
 {
-
     [SerializeField] LevelSO _xLevelData;
+    UIHandler _xUI;
 
     private void Start()
     {
+        SceneManager.LoadSceneAsync("that one scene");
+        _xUI = FindObjectOfType<UIHandler>();
+
         // ask tutor for help to find a better way 
         if (_xLevelData.xPointsHandler.isActive)
         {
             if (_xLevelData.xtimerSystem.isActive)
             {
-                _xLevelData.xtimerSystem.aTimerFinished += LevelLost;
+                _xLevelData.xtimerSystem.aFinishedExecute += LevelLost;
             }
-            _xLevelData.xPointsHandler.aGoalReached += LevelWon;
+            _xLevelData.xPointsHandler.aFinishedExecute += LevelWon;
         }
         else if(_xLevelData.xtimerSystem.isActive)
         {
-            _xLevelData.xtimerSystem.aTimerFinished += LevelWon;
+            _xLevelData.xtimerSystem.aFinishedExecute += LevelWon;
         }
         _xLevelData.xPointsHandler.Inanziate();
     }
@@ -33,11 +37,11 @@ public class LevelHandler : MonoBehaviour
 
     public void LevelWon()
     {
-        _xLevelData.gWinScreen.SetActive(true);
+        _xUI.LevelDone(true);
     }
     public void LevelLost()
     {
-        _xLevelData.gLoseScreen.SetActive(true);
+        _xUI.LevelDone(false);
     }
 }
 

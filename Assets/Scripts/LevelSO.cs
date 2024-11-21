@@ -7,6 +7,10 @@ public class LevelSO : ScriptableObject
 {
     [SerializeField] public TimerSystem xtimerSystem;
     [SerializeField] public PointsSystem xPointsHandler;
-    [SerializeField] public GameObject gWinScreen;
-    [SerializeField] public GameObject gLoseScreen;
+
+    public void Reset()
+    {
+        xtimerSystem.Reset();
+        xPointsHandler.Reset();
+    }
 }

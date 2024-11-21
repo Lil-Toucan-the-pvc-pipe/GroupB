@@ -5,9 +5,9 @@ using UnityEngine;
 public class TimerSystem : FeatureSystem
 {   
     private float _fTimer;
-    [SerializeField] private float _fTimerDuration;
-    [HideInInspector] public Action aTimerFinished;
-    public bool isActive;
+    [SerializeField] private float _fTimerDurationInSeconds;
+    
+    
 
     public override void Inanziate()
     {
@@ -16,13 +16,20 @@ public class TimerSystem : FeatureSystem
 
     public override void ExecuteUpdate()
     {
-        if (_fTimer >= _fTimerDuration)
+        if (_fTimer >= _fTimerDurationInSeconds)
         {
-            aTimerFinished?.Invoke();
+            aFinishedExecute?.Invoke();
             return;
         }
 
 
         _fTimer += Time.deltaTime;
+    }
+
+    public override void Reset()
+    {
+        _fTimer = 0;
+        aFinishedExecute = null;
+        
     }
 }
