@@ -10,7 +10,7 @@ public class LevelHandler : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.LoadSceneAsync("that one scene");
+        
         _xUI = FindObjectOfType<UIHandler>();
 
         // ask tutor for help to find a better way 
