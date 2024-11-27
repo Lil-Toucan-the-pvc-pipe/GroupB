@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Command
@@ -42,3 +43,22 @@ public class AddPointCommand : Command
         PointsData.iPoints += 1;
     }
 }
+
+public class UpdatePoints : Command
+{
+    TMP_Text _text;
+
+    public UpdatePoints(TMP_Text _text) : base() 
+    { 
+        this._text = _text;
+    }
+
+    public override void Execute()
+    {
+        _text.text = PointsData.iPoints.ToString();
+    }
+
+
+}
+
+

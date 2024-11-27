@@ -5,10 +5,10 @@ using UnityEngine.Windows;
 
 public class Controls
 {
-    protected InputActionReference _xPInput;
+    protected InputAction _xPInput;
     Action _aPressAction;
 
-    public Controls(InputActionReference _xPInput)
+    public Controls(InputAction _xPInput)
     {
         this._xPInput = _xPInput;
     }
@@ -16,7 +16,7 @@ public class Controls
     public virtual void AddCommand(Command command)
     {
         _aPressAction += command.Execute;
-        _xPInput.action.started += Pressed;
+        _xPInput.started += Pressed;
     }
 
     protected virtual void Pressed(InputAction.CallbackContext context)

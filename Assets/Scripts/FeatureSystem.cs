@@ -4,7 +4,8 @@ using UnityEngine;
 public class FeatureSystem
 {
     public bool isActive;
-    [HideInInspector] public Action aFinishedExecute;
+    [HideInInspector] public Action aOnFinishedExecute;
+
     public virtual void Inanziate()
     {
 

@@ -6,7 +6,7 @@ public class TimerSystem : FeatureSystem
 {   
     private float _fTimer;
     [SerializeField] private float _fTimerDurationInSeconds;
-    
+    public Action<float> aOnTimerChange;
     
 
     public override void Inanziate()
@@ -18,18 +18,18 @@ public class TimerSystem : FeatureSystem
     {
         if (_fTimer >= _fTimerDurationInSeconds)
         {
-            aFinishedExecute?.Invoke();
+            aOnFinishedExecute?.Invoke();
             return;
         }
 
 
         _fTimer += Time.deltaTime;
+        aOnTimerChange?.Invoke(_fTimer);
     }
 
     public override void Reset()
     {
         _fTimer = 0;
-        aFinishedExecute = null;
-        
+        aOnFinishedExecute = null;
     }
 }

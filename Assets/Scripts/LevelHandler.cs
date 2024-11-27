@@ -10,23 +10,25 @@ public class LevelHandler : MonoBehaviour
 
     private void Start()
     {
-        
         _xUI = FindObjectOfType<UIHandler>();
 
-        // ask tutor for help to find a better way 
         if (_xLevelData.xPointsHandler.isActive)
         {
             if (_xLevelData.xtimerSystem.isActive)
             {
-                _xLevelData.xtimerSystem.aFinishedExecute += LevelLost;
+                _xLevelData.xtimerSystem.aOnFinishedExecute += LevelLost;
+                _xLevelData.xtimerSystem.aOnTimerChange += _xUI.UpdateTimer;
             }
-            _xLevelData.xPointsHandler.aFinishedExecute += LevelWon;
+            _xLevelData.xPointsHandler.aOnFinishedExecute += LevelWon;
         }
-        else if(_xLevelData.xtimerSystem.isActive)
+        else if (_xLevelData.xtimerSystem.isActive)
         {
-            _xLevelData.xtimerSystem.aFinishedExecute += LevelWon;
+            _xLevelData.xtimerSystem.aOnFinishedExecute += LevelWon;
+            _xLevelData.xtimerSystem.aOnTimerChange += _xUI.UpdateTimer;
+
         }
         _xLevelData.xPointsHandler.Inanziate();
+
     }
 
     private void Update()
@@ -37,11 +39,11 @@ public class LevelHandler : MonoBehaviour
 
     public void LevelWon()
     {
-        _xUI.LevelDone(true);
+        _xUI.LevelEnd(true);
     }
     public void LevelLost()
     {
-        _xUI.LevelDone(false);
+        _xUI.LevelEnd(false);
     }
 }
 

@@ -8,7 +8,7 @@ public class PointsSystem : FeatureSystem
 {
     [SerializeField] private int _iPointsToGet = 1;
     [SerializeField] private int _iPointsPerPress = 1;
-    
+
 
     // start => InputData.PumpButton.AddCommand(AddPoints)
 
@@ -22,7 +22,7 @@ public class PointsSystem : FeatureSystem
         if (PointsData.iPoints == _iPointsToGet)
         {
             PointsData.ResetPoints();
-            aFinishedExecute?.Invoke();
+            aOnFinishedExecute?.Invoke();
             return;
         }
     }
@@ -30,7 +30,7 @@ public class PointsSystem : FeatureSystem
     public override void Reset()
     {
         PointsData.ResetPoints();
-        aFinishedExecute = null;
+        aOnFinishedExecute = null;
     }
 
 }

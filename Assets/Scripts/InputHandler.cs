@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    private static Inputs _xInputs = new();
+    private static Inputs _xInputs;
 
     enum INPUT_MODES
     {
@@ -17,9 +17,8 @@ public class InputHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        InputActionReference inputActionReference = new();
-        inputActionReference.Set(_xInputs.InGame.PUMP);
-        ButtonsData.xPumpButton = new(inputActionReference);
+        _xInputs = new();
+        ButtonsData.xPumpButton = new(_xInputs.InGame.PUMP);
     }
 
     private void OnDisable()
