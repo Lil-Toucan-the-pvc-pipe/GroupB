@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -59,6 +60,21 @@ public class UpdatePoints : Command
     }
 
 
+}
+
+public class GetCommand : Command
+{
+    public Action aOnExecute;
+
+    public GetCommand(Action aOnExecute) : base()
+    {
+        this.aOnExecute = aOnExecute;
+    }
+
+    public override void Execute()
+    {
+        aOnExecute?.Invoke();
+    }
 }
 
 

@@ -5,12 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LeveL",menuName = "Assets/LevelSO")]
 public class LevelSO : ScriptableObject
 {
-    [SerializeField] public TimerSystem xtimerSystem;
+    [SerializeField] public TimerSystem xTimerSystem;
     [SerializeField] public PointsSystem xPointsHandler;
+    [SerializeField] public DelaySystem xDelaySystem;
 
     public void Reset()
     {
-        xtimerSystem.Reset();
+        xTimerSystem.Reset();
         xPointsHandler.Reset();
+        xDelaySystem.Reset();
     }
 }

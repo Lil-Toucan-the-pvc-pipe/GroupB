@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _aAnimator = GetComponent<Animator>();
+        _aAnimator = GetComponentInChildren<Animator>();
         ButtonsData.xPumpButton.AddCommand(new PumpCommand(_aAnimator));
     }
 }

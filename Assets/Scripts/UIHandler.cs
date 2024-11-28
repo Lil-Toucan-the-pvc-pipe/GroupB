@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _gWinScreen;
     [SerializeField] private GameObject _gLoseScreen;
-    [SerializeField] private TMP_Text _tPoints;
-    [SerializeField] private TMP_Text _tTimer;
-
+    [SerializeField] private TMP_Text _tPointsText;
+    [SerializeField] private TMP_Text _tTimerText;
+    [SerializeField] private Image _sDelaySlider;
     [SerializeField] private LevelSO _xLevelData;
 
     private void Start()
     {
-
-        ButtonsData.xPumpButton.AddCommand(new UpdatePoints(_tPoints));
+        ButtonsData.xPumpButton.AddCommand(new UpdatePoints(_tPointsText));
     }
 
     public void ObjectOnOff(GameObject objectToChange)
@@ -33,12 +33,22 @@ public class UIHandler : MonoBehaviour
     /// <param name="isWin">true if you won</param>
     public void LevelEnd(bool isWin)
     {
+        
         _gWinScreen.SetActive(isWin);
         _gLoseScreen.SetActive(!isWin);
     }
 
+    /// <summary>
+    /// updates the UI's timer
+    /// </summary>
+    /// <param name="timer"></param>
     public void UpdateTimer(float timer) 
     {
-        _tTimer.text = timer.ToString("F1");
+        _tTimerText.text = timer.ToString("F1");
+    }
+
+    public void UpdateDelay( float rangeFrom0To1) 
+    {
+        _sDelaySlider.fillAmount = rangeFrom0To1;
     }
 }

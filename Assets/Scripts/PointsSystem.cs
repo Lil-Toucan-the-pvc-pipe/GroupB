@@ -21,7 +21,6 @@ public class PointsSystem : FeatureSystem
     {
         if (PointsData.iPoints == _iPointsToGet)
         {
-            PointsData.ResetPoints();
             aOnFinishedExecute?.Invoke();
             return;
         }

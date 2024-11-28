@@ -7,17 +7,19 @@ public class InputHandler : MonoBehaviour
 {
     private static Inputs _xInputs;
 
-    enum INPUT_MODES
+    public enum INPUT_MODES
     {
         INGAME,
         MENÙ
     }
 
-    static INPUT_MODES _xMODES = INPUT_MODES.MENÙ;
+   
 
     private void OnEnable()
     {
         _xInputs = new();
+        _xInputs.InGame.Enable();
+
         ButtonsData.xPumpButton = new(_xInputs.InGame.PUMP);
     }
 
@@ -31,18 +33,16 @@ public class InputHandler : MonoBehaviour
     /// <summary>
     /// changes between the Ingame and Menù inputs
     /// </summary>
-    public static void ChangeInputMode()
+    public static void ChangeInputMode(INPUT_MODES inputMode)
     {
-        if(_xMODES == INPUT_MODES.INGAME)
+        if (inputMode == INPUT_MODES.MENÙ)
         {
             _xInputs.InGame.Disable();
-            _xMODES = INPUT_MODES.MENÙ;
             _xInputs.Menu.Enable();
         }
         else
         {
             _xInputs.Menu.Disable();
-            _xMODES = INPUT_MODES.INGAME;
             _xInputs.InGame.Enable();
         }
     }
