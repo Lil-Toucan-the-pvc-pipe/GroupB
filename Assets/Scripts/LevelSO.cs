@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LeveL",menuName = "Assets/LevelSO")]
+[CreateAssetMenu(fileName = "LeveL", menuName = "Assets/LevelSO")]
 public class LevelSO : ScriptableObject
 {
-    [SerializeField] public TimerSystem xTimerSystem;
-    [SerializeField] public PointsSystem xPointsHandler;
-    [SerializeField] public DelaySystem xDelaySystem;
+	[SerializeField] public Systems[] _Systems;
 
-    public void Reset()
-    {
-        xTimerSystem.Reset();
-        xPointsHandler.Reset();
-        xDelaySystem.Reset();
-    }
+	public void Reset()
+	{
+		foreach (var system in _Systems) 
+		{
+            system.xTimerSystem.Reset();
+            system.xPointsSystem.Reset();
+            system.xDelaySystem.Reset();
+        }
+	}
+}
+
+[System.Serializable]
+public class Systems
+{
+	[SerializeField] public TimerSystem xTimerSystem;
+	[SerializeField] public PointsSystem xPointsSystem;
+	[SerializeField] public DelaySystem xDelaySystem;
 }
