@@ -12,14 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7bbe32dce29654e9f802317f31d3e0, type: 3}
   m_Name: Level_0
   m_EditorClassIdentifier: 
-  xTimerSystem:
-    isActive: 1
-    _bIsItTimer: 1
-    _fTimerDurationInSeconds: 100
-  xPointsHandler:
-    isActive: 1
-    _iPointsToGet: 10
-    _iPointsPerPress: 1
-  xDelaySystem:
-    isActive: 1
-    fDelayTimerInSeconds: 0.5
+  _Systems:
+  - xTimerSystem:
+      isActive: 1
+      _bIsItTimer: 1
+      _fTimerDurationInSeconds: 30
+    xPointsSystem:
+      isActive: 0
+      _iPointsToGet: 0
+      _iPointsPerPress: 1
+    xDelaySystem:
+      isActive: 0
+      fDelayTimerInSeconds: 0
+  - xTimerSystem:
+      isActive: 1
+      _bIsItTimer: 1
+      _fTimerDurationInSeconds: 30
+    xPointsSystem:
+      isActive: 0
+      _iPointsToGet: 0
+      _iPointsPerPress: 1
+    xDelaySystem:
+      isActive: 0
+      fDelayTimerInSeconds: 0

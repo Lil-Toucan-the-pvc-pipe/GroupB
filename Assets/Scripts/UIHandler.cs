@@ -12,7 +12,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private TMP_Text _tPointsText;
     [SerializeField] private TMP_Text _tTimerText;
     [SerializeField] private Image _sDelaySlider;
-    [SerializeField] public LevelSO xLevelData;
+    [HideInInspector] public LevelSO xLevelData;
 
     private void Start()
     {
