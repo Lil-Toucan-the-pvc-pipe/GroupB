@@ -10,19 +10,19 @@ public class LevelHandler : MonoBehaviour
 	private bool _bIsLevelOver = false;
 	private int _iDifficultyIndex;
 
-	private DelaySystem _xDelaySystem => _xLevelData._Systems[_iDifficultyIndex].xDelaySystem;
-	private TimerSystem _xTimerSystem => _xLevelData._Systems[_iDifficultyIndex].xTimerSystem;
-	private PointsSystem _xPointsSystem => _xLevelData._Systems[_iDifficultyIndex].xPointsSystem;
+	private DelaySystem _xDelaySystem => _xLevelData.xSystems[_iDifficultyIndex].xDelaySystem;
+	private TimerSystem _xTimerSystem => _xLevelData.xSystems[_iDifficultyIndex].xTimerSystem;
+	private PointsSystem _xPointsSystem => _xLevelData.xSystems[_iDifficultyIndex].xPointsSystem;
 
 
 	private void Start()
 	{
 		_xUI = FindObjectOfType<UIHandler>();
-		_xUI.xLevelData = _xLevelData;
-		DifficultySelection();
+		_iDifficultyIndex = DifficultyManager.CalculateDifficulty(_xLevelData.xSystems.Length);
 
 		SystemsInizialization();
 		_bIsLevelOver = false;
+		
 
 	}
 
@@ -71,17 +71,13 @@ public class LevelHandler : MonoBehaviour
 		{
 			_xTimerSystem.aOnFinishedExecute += LevelWon;
 			_xTimerSystem.aOnTimerChange += _xUI.UpdateTimer;
-
 		}
 		_xPointsSystem.Inanziate();
 		_xTimerSystem.Inanziate();
 		_xDelaySystem.Inanziate();
 	}
 
-	private void DifficultySelection()
-	{
-		_iDifficultyIndex = 0;
-	}
+	
 }
 
 

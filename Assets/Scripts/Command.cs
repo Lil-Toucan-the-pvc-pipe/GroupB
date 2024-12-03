@@ -62,6 +62,22 @@ public class UpdatePoints : Command
 
 }
 
+public class PlayAudioCommand : Command
+{
+    private AudioClip _xAudioClip;
+    private float _fVolume;
+
+    public PlayAudioCommand(AudioClip _xAudioClip,float _fVolume) : base()
+    {
+        this._xAudioClip = _xAudioClip;
+        this._fVolume = _fVolume;
+    }
+    public override void Execute()
+    {
+        AudioManager.instance.PlaySFX(_xAudioClip,_fVolume);
+    }
+}
+
 public class GetCommand : Command
 {
     public Action aOnExecute;

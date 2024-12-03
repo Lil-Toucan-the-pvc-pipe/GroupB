@@ -18,22 +18,49 @@ public class MenuHandler : MonoBehaviour
     [SerializeField] private Image _iLoadingBar;
     [SerializeField] private GameObject[] _gMenuComponents;
     [SerializeField] private SceneToLoad[] _xScenesToLoad;
+    [SerializeField] private GameObject _gSettingsPannel;
 
 
     private List<AsyncOperation> _xLoadedScenes;
 
     private void Awake()
     {
+        InputHandler.ChangeInputMode(InputHandler.INPUT_MODES.MENÙ);
         _iLoadingBar.gameObject.SetActive(false);
         _xLoadedScenes = new();
     }
+
+    // Settings
+    public void OpenSettings()
+    {
+        _gSettingsPannel.SetActive(true);
+    }
+
+    public void MuteButton()
+    {
+
+    }
+
+    public enum SoundType
+    {
+        Main,
+        SFX,
+        Music
+    }
+
+    public void VolumeSlider(SoundType soundType,float level)
+    {
+        AudioManager.instance.SetVolume(soundType, level);
+    }
+
+    // Settings
+
 
     // ExitButton
     public void ExitGame()
     {
         Application.Quit();
     }
-
     // ExitButton
 
     // StartButton
@@ -41,6 +68,7 @@ public class MenuHandler : MonoBehaviour
     {
         HideMenuItems();
         _iLoadingBar.gameObject.SetActive(true);
+        InputHandler.ChangeInputMode(InputHandler.INPUT_MODES.INGAME);
         AddScenesToLoad();
        
     }
@@ -78,5 +106,3 @@ public class MenuHandler : MonoBehaviour
     }
     // StartButton
 }
-
-
