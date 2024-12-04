@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 770832381}
   - component: {fileID: 770832380}
   m_Layer: 0
-  m_Name: comodino (1)
+  m_Name: letto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
