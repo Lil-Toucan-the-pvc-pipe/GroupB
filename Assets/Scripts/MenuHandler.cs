@@ -41,17 +41,9 @@ public class MenuHandler : MonoBehaviour
 
     }
 
-    public enum SoundType
-    {
-        Main,
-        SFX,
-        Music
-    }
+    
 
-    public void VolumeSlider(SoundType soundType,float level)
-    {
-        AudioManager.instance.SetVolume(soundType, level);
-    }
+  
 
     // Settings
 
