@@ -22,7 +22,12 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
+    public enum SoundType
+    {
+        Main,
+        SFX,
+        Music
+    }
     public void PlaySFX(AudioClip audioClip, float volume)
     {
 
@@ -45,24 +50,16 @@ public class AudioManager : MonoBehaviour
         Destroy(audioSource,clipLenght);
     }
 
-    public void SetVolume(SoundType soundType, float level)
-    {
-        if(soundType == SoundType.Main)
-            SetMainVoulume(level);
-        else if (soundType == SoundType.SFX)
-            SetSFXVoulume(level);
-        else
-            SetMusicVoulume(level);
-    }
-    private void SetMainVoulume(float level)
+    
+    public void SetMainVoulume(float level)
     {
         _xAudioMixer.SetFloat("MainVolume", Mathf.Log10(level) * 20f);
     }
-    private void SetSFXVoulume(float level)
+    public void SetSFXVoulume(float level)
     {
         _xAudioMixer.SetFloat("SFXVoulume", Mathf.Log10(level) * 20f);
     }
-    private void SetMusicVoulume(float level)
+    public void SetMusicVoulume(float level)
     {
         _xAudioMixer.SetFloat("MusicVoulume", Mathf.Log10(level) * 20f);
     }
