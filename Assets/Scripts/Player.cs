@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     {
         _aAnimator = GetComponentInChildren<Animator>();
         ButtonsData.xPumpButton.AddCommand(new PumpCommand(_aAnimator));
-        ButtonsData.xPumpButton.AddCommand(new PlayAudioCommand(_xPumpAudioClip.xAudioClip, _xPumpAudioClip._fVolume));
+        //ButtonsData.xPumpButton.AddCommand(new PlayAudioCommand(_xPumpAudioClip.xAudioClip, _xPumpAudioClip._fVolume));
     }
 }
 
