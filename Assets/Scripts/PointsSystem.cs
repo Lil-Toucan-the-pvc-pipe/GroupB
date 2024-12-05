@@ -22,6 +22,7 @@ public class PointsSystem : FeatureSystem
     {
         if (PointsData.iPoints == _iPointsToGet)
         {
+            SaveToLeaderboard("PlayerName", PointsData.iPoints);
             aOnFinishedExecute?.Invoke();
             return;
         }
@@ -32,5 +33,32 @@ public class PointsSystem : FeatureSystem
         PointsData.ResetPoints();
         aOnFinishedExecute = null;
     }
+    private void SaveToLeaderboard(string playerName, int points)
+    {
+        
+        int totalEntries = PlayerPrefs.GetInt("Leaderboard_TotalEntries", 0);
 
+        
+        //PlayerPrefs.SetString($"Leaderboard_Player_{totalEntries}", playerName);
+        PlayerPrefs.SetInt($"Leaderboard_Score_{totalEntries}", points);
+
+        
+        PlayerPrefs.SetInt("Leaderboard_TotalEntries", totalEntries + 1);
+
+        
+        PlayerPrefs.Save();
+    }
+
+    //public void DisplayLeaderboard()
+    //{
+    //    int totalEntries = PlayerPrefs.GetInt("Leaderboard_TotalEntries", 0);
+
+    //    for (int i = 0; i < totalEntries; i++)
+    //    {
+    //        string playerName = PlayerPrefs.GetString($"Leaderboard_Player_{i}", "Unknown");
+    //        int score = PlayerPrefs.GetInt($"Leaderboard_Score_{i}", 0);
+
+    //        Debug.Log($"Rank {i + 1}: {playerName} - {score} points");
+    //    }
+    //}
 }
