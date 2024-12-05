@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public struct SceneToLoad
+{
+    [SerializeField] public string _xSceneToLoad;
+    [SerializeField] public LoadSceneMode _xLoadMode;
 
+}
 public class MenuHandler : MonoBehaviour
 {
-    [System.Serializable]
-    public struct SceneToLoad
-    {
-        [SerializeField] public string _xSceneToLoad;
-        [SerializeField] public LoadSceneMode _xLoadMode;
-
-    }
+    
+   
 
     [SerializeField] private Image _iLoadingBar;
     [SerializeField] private GameObject[] _gMenuComponents;

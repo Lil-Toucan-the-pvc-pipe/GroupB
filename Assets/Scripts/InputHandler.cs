@@ -17,15 +17,20 @@ public class InputHandler : MonoBehaviour
     {
         _xInputs = new();
         _xInputs.InGame.Enable();
-
         ButtonsData.xPumpButton = new(_xInputs.InGame.PUMP);
+
     }
 
     private void OnDisable()
     {
+        _xInputs.Disable();
+        ButtonsData.xPumpButton?.Reset();
+        ButtonsData.xReturnButton?.Reset();
+        ButtonsData.xComfirmButton?.Reset();
         ButtonsData.xPumpButton = null;
         ButtonsData.xReturnButton = null;
         ButtonsData.xComfirmButton = null;
+        
     }
 
     /// <summary>

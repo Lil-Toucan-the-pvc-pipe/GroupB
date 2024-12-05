@@ -24,4 +24,11 @@ public class Controls
         Debug.Log(_xPInput.enabled);
         _aPressAction?.Invoke();
     }
+
+    public void Reset()
+    {
+        _aPressAction -= _aPressAction;
+        _aPressAction = null;
+        
+    }
 }

@@ -9,10 +9,6 @@ public class PointsSystem : FeatureSystem
 {
     [SerializeField] private int _iPointsToGet = 1;
     [SerializeField,DefaultValue(1)] private int _iPointsPerPress = 1;
-
-
-    // start => InputData.PumpButton.AddCommand(AddPoints)
-
     public override void Inanziate()
     {
         ButtonsData.xPumpButton.AddCommand(new AddPointCommand(_iPointsPerPress));
@@ -31,6 +27,7 @@ public class PointsSystem : FeatureSystem
     public override void Reset()
     {
         PointsData.ResetPoints();
+        aOnFinishedExecute -= aOnFinishedExecute;
         aOnFinishedExecute = null;
     }
     private void SaveToLeaderboard(string playerName, int points)

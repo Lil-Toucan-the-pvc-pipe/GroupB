@@ -15,18 +15,23 @@ public class LevelHandler : MonoBehaviour
 	private PointsSystem _xPointsSystem => _xLevelData.xSystems[_iDifficultyIndex].xPointsSystem;
 
 
-	private void Start()
-	{
-		_xUI = FindObjectOfType<UIHandler>();
-		_iDifficultyIndex = DifficultyManager.CalculateDifficulty(_xLevelData.xSystems.Length);
 
-		SystemsInizialization();
-		_bIsLevelOver = false;
-		
+    private void Start()
+    {
+        _xUI = FindObjectOfType<UIHandler>();
+        _iDifficultyIndex = DifficultyManager.CalculateDifficulty(_xLevelData.xSystems.Length);
 
-	}
+        SystemsInizialization();
+        _bIsLevelOver = false;
+    }
 
-	private void Update()
+    private void OnDisable()
+    {
+		_xDelaySystem.Reset();
+		_xTimerSystem.Reset();
+		_xPointsSystem.Reset();
+    }
+    private void Update()
 	{
 		if (_bIsLevelOver)
 			return;
