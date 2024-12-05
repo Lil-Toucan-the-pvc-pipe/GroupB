@@ -36,6 +36,8 @@ public class TimerSystem : FeatureSystem
     public override void Reset()
     {
         _fTimer = 0;
+        aOnFinishedExecute -= aOnFinishedExecute;
+        aOnTimerChange -= aOnTimerChange;
         aOnFinishedExecute = null;
         aOnTimerChange = null;
     }

@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public struct SceneToLoad
+{
+    [SerializeField] public string _xSceneToLoad;
+    [SerializeField] public LoadSceneMode _xLoadMode;
 
+}
 public class MenuHandler : MonoBehaviour
 {
-    [System.Serializable]
-    public struct SceneToLoad
-    {
-        [SerializeField] public string _xSceneToLoad;
-        [SerializeField] public LoadSceneMode _xLoadMode;
-
-    }
+    
+   
 
     [SerializeField] private Image _iLoadingBar;
     [SerializeField] private GameObject[] _gMenuComponents;
@@ -34,6 +35,20 @@ public class MenuHandler : MonoBehaviour
     public void OpenSettings()
     {
         _gSettingsPannel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        _gSettingsPannel.SetActive(false);
+    }
+
+    public void OpenCredits(GameObject _gCreditsPanel)
+    {
+        _gCreditsPanel.SetActive(true);
+    }
+    public void CloseCredits(GameObject _gCreditsPanel)
+    {
+        _gCreditsPanel.SetActive(false);
     }
 
     public void MuteButton()

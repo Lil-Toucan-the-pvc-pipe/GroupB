@@ -36,6 +36,8 @@ public class DelaySystem : FeatureSystem
     public override void Reset()
     {
         ResetDelayTimer();
+        xOnDelayTimerChanged -= xOnDelayTimerChanged;
+        aOnFinishedExecute -= aOnFinishedExecute;
         xOnDelayTimerChanged = null;
         aOnFinishedExecute = null;
     }

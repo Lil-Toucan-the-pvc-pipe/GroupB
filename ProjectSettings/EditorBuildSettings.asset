@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PersistentGameplay.unity
     guid: 3dfce717f4dfdab4d87d74e992877e94
+  - enabled: 1
+    path: Assets/Scenes/AtlanteScene.unity
+    guid: 4123cc19049e7864da252e28d81dd764
+  - enabled: 1
+    path: Assets/Scenes/ArtemideScene.unity
+    guid: 3fa937a56e667dc498a58afe74b8a281
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ad9e5a2d0fbf1b24e8f36853caf584c3
   m_configObjects: {}
