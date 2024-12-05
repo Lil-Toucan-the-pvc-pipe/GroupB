@@ -36,6 +36,20 @@ public class MenuHandler : MonoBehaviour
         _gSettingsPannel.SetActive(true);
     }
 
+    public void CloseSettings()
+    {
+        _gSettingsPannel.SetActive(false);
+    }
+
+    public void OpenCredits(GameObject _gCreditsPanel)
+    {
+        _gCreditsPanel.SetActive(true);
+    }
+    public void CloseCredits(GameObject _gCreditsPanel)
+    {
+        _gCreditsPanel.SetActive(false);
+    }
+
     public void MuteButton()
     {
 
