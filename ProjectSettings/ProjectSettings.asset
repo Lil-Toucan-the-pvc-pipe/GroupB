@@ -39,7 +39,13 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: -1929459258, guid: f84700b5a866dcc439e35cbdab6101c9, type: 3}
+    duration: 2
+  - logo: {fileID: 1234243471, guid: f84700b5a866dcc439e35cbdab6101c9, type: 3}
+    duration: 2
+  - logo: {fileID: -110527070, guid: f84700b5a866dcc439e35cbdab6101c9, type: 3}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
@@ -771,7 +777,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: UwU
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -779,7 +785,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: UwU
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: UwU
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0

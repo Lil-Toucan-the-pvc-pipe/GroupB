@@ -27,7 +27,7 @@ public static class DifficultyManager
 
     public static int CalculateDifficulty(int numberOfOptions)
     {
-        float distanceBetweenOptions = 1 / numberOfOptions;
+        float distanceBetweenOptions = 1f / numberOfOptions;
 
         for (int i = 0; i < numberOfOptions; i++) 
         {

@@ -11,13 +11,18 @@ public class UIHandler : MonoBehaviour
 {
     [SerializeField] private GameObject _gWinScreen;
     [SerializeField] private GameObject _gLoseScreen;
+    [SerializeField] public GameObject _gDelayPanel;
     [SerializeField] private TMP_Text _tPointsText;
     [SerializeField] private TMP_Text _tTimerText;
+    [SerializeField] private TMP_Text delayTimer;
+    [SerializeField] public TMP_Text PointsGoalText;
+    [SerializeField] public TMP_Text TimerGoalText;
     [SerializeField] private Image _sDelaySlider;
 
     [SerializeField] SceneToLoad[] _xNextLevel;
     [SerializeField] SceneToLoad[] _xCurrentExtraScenese;
     [SerializeField] SceneToLoad[] _xMainMenu;
+
     private List<AsyncOperation> _xLoadedScenes;
     string currentSceneName;
 
@@ -28,6 +33,15 @@ public class UIHandler : MonoBehaviour
         ButtonsData.xPumpButton.AddCommand(new UpdatePoints(_tPointsText));
         currentSceneName = SceneManager.GetActiveScene().name;
         _xLoadedScenes = new();
+    }
+
+    public void DelayTimer(float timer)
+    {
+        delayTimer.text = timer.ToString("F1");
+    }
+    public void DeactivateDelayPanel(GameObject delayPanel)
+    {
+        delayPanel.SetActive(false);
     }
 
     public void ObjectOnOff(GameObject objectToChange)

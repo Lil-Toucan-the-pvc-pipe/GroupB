@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class PointsSystem : FeatureSystem
 {
-    [SerializeField] private int _iPointsToGet = 1;
+    [SerializeField] public int _iPointsToGet = 1;
     [SerializeField,DefaultValue(1)] private int _iPointsPerPress = 1;
     public override void Inanziate()
     {

@@ -14,23 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xSystems:
   - xTimerSystem:
-      isActive: 0
-      _bIsItTimer: 0
-      _fTimerDurationInSeconds: 20
+      isActive: 1
+      _bIsItTimer: 1
+      _fTimerDurationInSeconds: 15
     xPointsSystem:
       isActive: 1
-      _iPointsToGet: 100000
+      _iPointsToGet: 150
       _iPointsPerPress: 1
     xDelaySystem:
       isActive: 1
-      fDelayTimerInSeconds: 1
+      fDelayTimerInSeconds: 0.5
   - xTimerSystem:
       isActive: 1
       _bIsItTimer: 1
       _fTimerDurationInSeconds: 20
     xPointsSystem:
       isActive: 1
-      _iPointsToGet: 10
+      _iPointsToGet: 130
+      _iPointsPerPress: 1
+    xDelaySystem:
+      isActive: 1
+      fDelayTimerInSeconds: 0.7
+  - xTimerSystem:
+      isActive: 1
+      _bIsItTimer: 1
+      _fTimerDurationInSeconds: 30
+    xPointsSystem:
+      isActive: 1
+      _iPointsToGet: 100
       _iPointsPerPress: 1
     xDelaySystem:
       isActive: 1

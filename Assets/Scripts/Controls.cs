@@ -21,7 +21,7 @@ public class Controls
 
     protected virtual void Pressed(InputAction.CallbackContext context)
     {
-        Debug.Log(_xPInput.enabled);
+        //Debug.Log(_xPInput.enabled);
         _aPressAction?.Invoke();
     }
 
