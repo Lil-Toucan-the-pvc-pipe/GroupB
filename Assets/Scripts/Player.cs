@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     Animator _aAnimator;
-    SFXAudioClip _xPumpAudioClip;
+    [SerializeField] SFXAudioClip[] _xPumpAudioClip;
 
     private void Start()
     {
         _aAnimator = GetComponentInChildren<Animator>();
         ButtonsData.xPumpButton.AddCommand(new PumpCommand(_aAnimator));
-        //ButtonsData.xPumpButton.AddCommand(new PlayAudioCommand(_xPumpAudioClip.xAudioClip, _xPumpAudioClip._fVolume));
+        ButtonsData.xPumpButton.AddCommand(new PlayAudioCommand(_xPumpAudioClip));
     }
 }
 

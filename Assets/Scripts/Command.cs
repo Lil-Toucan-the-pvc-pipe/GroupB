@@ -64,17 +64,38 @@ public class UpdatePoints : Command
 
 public class PlayAudioCommand : Command
 {
+    private SFXAudioClip[] _xAudioClips;
     private AudioClip _xAudioClip;
     private float _fVolume;
-
+    private bool _bIsMultipleClips;
+    private float _fTimeOfPress;
     public PlayAudioCommand(AudioClip _xAudioClip,float _fVolume) : base()
     {
         this._xAudioClip = _xAudioClip;
         this._fVolume = _fVolume;
+        _bIsMultipleClips = false;
+    }
+    public PlayAudioCommand(SFXAudioClip[] audioClips ) : base()
+    {
+        _xAudioClips = audioClips;
+        _bIsMultipleClips = true;
     }
     public override void Execute()
     {
+        if (Time.time - _fTimeOfPress < 1f)
+        {
+            return;
+        }
+            _fTimeOfPress = Time.time;
+
+        if (_bIsMultipleClips)
+        {
+            AudioManager.instance.PlayRandomSFX(_xAudioClips);
+            return;
+        }
+
         AudioManager.instance.PlaySFX(_xAudioClip,_fVolume);
+        
     }
 }
 

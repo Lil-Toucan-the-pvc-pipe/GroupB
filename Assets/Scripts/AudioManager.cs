@@ -39,12 +39,12 @@ public class AudioManager : MonoBehaviour
         Destroy(audioSource, clipLenght);
     }
 
-    public void PlayRandomSFX(AudioClip[] audioClips,float volume)
+    public void PlayRandomSFX(SFXAudioClip[] audioClips)
     {
         int rand = Random.Range(0, audioClips.Length);
         AudioSource audioSource = Instantiate(_gAudioSourcePrefab,Vector3.zero,Quaternion.identity);
-        audioSource.clip = audioClips[rand];
-        audioSource.volume = volume;
+        audioSource.clip = audioClips[rand].xAudioClip;
+        audioSource.volume = audioClips[rand]._fVolume;
         audioSource.Play();
         float clipLenght = audioSource.clip.length;
         Destroy(audioSource,clipLenght);
